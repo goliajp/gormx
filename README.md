@@ -69,7 +69,7 @@ db := p.Open()
 ```
 
 ### Database Operations
-Using the gormx utility, you can perform various database operations such as creating, checking, and dropping databases.
+Using the GormX utility, you can perform various database operations such as creating, checking, and dropping databases.
 
 #### Creating a New Database
 ```go
@@ -99,7 +99,7 @@ if err := gormx.DropDatabase(db, "testdb"); err != nil {
 ```
 
 ### Table Operations
-Using the gormx utility, you can perform various table operations such as creating, checking, and dropping tables.
+Using the GormX utility, you can perform various table operations such as creating, checking, and dropping tables.
 
 #### Dropping Tables
 ```go
@@ -117,7 +117,7 @@ if err != nil {
 ```
 
 ### Defining Table Structures
-gormx provides gormx.Model and gormx.RelatedModel to help you define table structures.
+GormX provides gormx.Model and gormx.RelatedModel to help you define table structures.
 
 ```go
 type One struct {
@@ -138,7 +138,7 @@ type OneTwo struct { // define the relationship of "one" and "two"
 ```
 
 ### Using Preset Scopes
-gormx provides preset scopes that can be helpful when you need to retrieve list results.
+GormX provides preset scopes that can be helpful when you need to retrieve list results.
 
 #### Sorting Results by created_at in Descending Order
 ```go

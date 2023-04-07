@@ -70,7 +70,7 @@ db := p.Open()
 ```
 
 ### 数据库操作
-使用 gormx，您可以执行各种数据库操作，如创建、检查和删除数据库
+使用 GormX，您可以执行各种数据库操作，如创建、检查和删除数据库
 
 #### 创建新数据库
 ```go
@@ -100,7 +100,7 @@ if err := gormx.DropDatabase(db, "testdb"); err != nil {
 ```
 
 ### 表操作
-使用 gormx，您可以执行各种表操作，如创建、检查和删除表
+使用 GormX，您可以执行各种表操作，如创建、检查和删除表
 
 #### 删除表
 ```go
@@ -118,7 +118,7 @@ if err != nil {
 ```
 
 ### 定义表结构
-gormx 提供了 gormx.Model 和 gormx.RelatedModel 来帮助您定义表结构
+GormX 提供了 gormx.Model 和 gormx.RelatedModel 来帮助您定义表结构
 
 ```go
 type One struct {
@@ -139,7 +139,7 @@ type OneTwo struct { // define the relationship of "one" and "two"
 ```
 
 ### 使用预设范围
-gormx 提供了预设范围，当您需要获取列表结果时非常有用
+GormX 提供了预设范围，当您需要获取列表结果时非常有用
 
 #### 按 created_at 降序排序结果
 ```go
