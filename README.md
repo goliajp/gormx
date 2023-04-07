@@ -155,7 +155,7 @@ db.Scopes(gormx.ScopePagination(1, 10)).Find(&rs)
 ```
 
 ## Contributing
-We welcome contributions to EnvX! Feel free to submit issues, feature requests, or pull requests on GitHub.
+We welcome contributions to GormX! Feel free to submit issues, feature requests, or pull requests on GitHub.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
