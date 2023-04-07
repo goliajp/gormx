@@ -41,10 +41,10 @@ You can also provide a custom configuration for both MySQL and PostgreSQL connec
 ##### MySQL
 ```go
 cfg := gormx.MysqlConfig{
-User:     "your username",
-Password: "your password",
-Addr:     "host:port",
-Dbname:   "connect dbname",
+    User:     "your username",
+    Password: "your password",
+    Addr:     "host:port",
+    Dbname:   "connect dbname",
 }
 m := gormx.NewMysql(&cfg)
 db := m.Open()
