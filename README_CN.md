@@ -1,44 +1,45 @@
-# GormX - Golang Gorm Utility
+# GormX - Golang Gorm 实用工具库
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/goliajp/gormx)](https://goreportcard.com/report/github.com/goliajp/gormx)
 [![GoDoc](https://pkg.go.dev/badge/github.com/goliajp/gormx)](https://pkg.go.dev/github.com/goliajp/gormx)
-[简体中文](README_CN.md)
+[ENGLISH](README.md)
 [日本語](README_JP.md)
 
-GormX is a useful Gorm utility for Golang, which makes it easy to connect to MySQL and PostgreSQL databases.
+GormX 是一个 Golang Gorm 实用工具库，可以帮助您轻松地连接到 MySQL 和 PostgreSQL 数据库
 
-## Features
 
-- Easily create and manage connections to MySQL and PostgreSQL databases
-- Create, check, and drop databases
-- Create, check, and drop tables
-- Define table structures using `gormx.Model` and `gormx.RelatedModel`
-- Preset scopes for sorting and pagination
+## 特点
 
-## Installation
+- 轻松创建和管理连接到 MySQL 和 PostgreSQL 数据库
+- 创建、检查和删除数据库
+- 创建、检查和删除表
+- 使用 `gormx.Model` 和 `gormx.RelatedModel` 定义表结构
+- 预设作用域进行排序和分页
+
+## 安装
 
 ```sh
 go get -u github.com/goliajp/gormx
 ```
 
-## Usage
-### Creating a Connection
-You can create connections to MySQL and PostgreSQL databases using the gormx.NewMysql() and gormx.NewPg() functions respectively. These functions return a *gorm.DB instance, which you can use for Gorm operations.
+## 使用
+### 创建连接
+您可以使用 gormx.NewMysql() 和 gormx.NewPg() 函数分别创建 MySQL 和 PostgreSQL 数据库的连接。这些函数返回一个 *gorm.DB 实例，您可以用于 Gorm 操作
 
-#### MySQL Connection
+#### MySQL 连接
 ```go
 m := gormx.NewMysql(nil) // nil is the default config: localhost:3306, root, root, mysql
 db := m.DB() // db is *gorm.DB, then you can use Gorm normally
 ```
 
-#### PostgreSQL Connection
+#### PostgreSQL 连接
 ```go
 p := gormx.NewPg(nil) // nil is the default config: localhost:5432, postgres, postgres, postgres, Asia/Shanghai
 db := p.DB() // db is *gorm.DB, then you can use Gorm normally
 ```
 
-#### Custom Connection Configuration
-You can also provide a custom configuration for both MySQL and PostgreSQL connections.
+#### 自定义连接配置
+您还可以为 MySQL 和 PostgreSQL 连接提供自定义配置
 
 ##### MySQL
 ```go
@@ -66,17 +67,17 @@ p := gormx.NewPg(&cfg)
 db := p.Open()
 ```
 
-### Database Operations
-Using the gormx utility, you can perform various database operations such as creating, checking, and dropping databases.
+### 数据库操作
+使用 gormx，您可以执行各种数据库操作，如创建、检查和删除数据库
 
-#### Creating a New Database
+#### 创建新数据库
 ```go
 if err := gormx.CreateDatabase(db, "testdb"); err != nil {
     // error handler
 }
 ```
 
-#### Checking if a Database Exists
+#### 检查数据库是否存在
 ```go
 hasTdb, err := gormx.HasDatabase(db, "testdb")
 if err != nil {
@@ -84,29 +85,29 @@ if err != nil {
 }
 ```
 
-#### Opening a Database
+#### 打开数据库
 ```go
 tdb := m.Open("testdb")
 ```
 
-#### Dropping a Database
+#### 删除数据库
 ```go
 if err := gormx.DropDatabase(db, "testdb"); err != nil {
     // error handler
 }
 ```
 
-### Table Operations
-Using the gormx utility, you can perform various table operations such as creating, checking, and dropping tables.
+### 表操作
+使用 gormx，您可以执行各种表操作，如创建、检查和删除表
 
-#### Dropping Tables
+#### 删除表
 ```go
 if err := gormx.DropTables(db, "table1", "table2"); err != nil {
     // error handler
 }
 ```
 
-#### Checking if a Table Exists
+#### 检查表是否存在
 ```go
 hasTable, err := gormx.HasTable(db, "table1")
 if err != nil {
@@ -114,8 +115,8 @@ if err != nil {
 }
 ```
 
-### Defining Table Structures
-gormx provides gormx.Model and gormx.RelatedModel to help you define table structures.
+### 定义表结构
+gormx 提供了 gormx.Model 和 gormx.RelatedModel 来帮助您定义表结构
 
 ```go
 type One struct {
@@ -135,29 +136,29 @@ type OneTwo struct { // define the relationship of "one" and "two"
 }
 ```
 
-### Using Preset Scopes
-gormx provides preset scopes that can be helpful when you need to retrieve list results.
+### 使用预设范围
+gormx 提供了预设范围，当您需要获取列表结果时非常有用
 
-#### Sorting Results by created_at in Descending Order
+#### 按 created_at 降序排序结果
 ```go
 var rs []Foo
 db.Scopes(gormx.ScopeOrderByCreatedAtDesc).Find(&rs)
 ```
 
-#### Sorting Results by updated_at in Descending Order
+#### 按 updated_at 降序排序结果
 ```go
 var rs []Foo
 db.Scopes(gormx.ScopeOrderByUpdatedAtDesc).Find(&rs)
 ```
 
-#### Pagination
+#### 分页
 ```go
 var rs []Foo
 db.Scopes(gormx.ScopePagination(1, 10)).Find(&rs)
 ```
 
-## Contributing
-We welcome contributions to GormX! Feel free to submit issues, feature requests, or pull requests on GitHub.
+## 贡献
+我们欢迎对 GormX 的贡献！请随时在 GitHub 上提交问题、功能请求或拉取请求
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 许可
+本项目采用MIT许可证 - 有关详细信息，请参阅 [LICENSE](LICENSE) 文件
