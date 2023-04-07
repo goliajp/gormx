@@ -2,6 +2,8 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/goliajp/gormx)](https://goreportcard.com/report/github.com/goliajp/gormx)
 [![GoDoc](https://pkg.go.dev/badge/github.com/goliajp/gormx)](https://pkg.go.dev/github.com/goliajp/gormx)
+
+---
 [简体中文](README_CN.md)
 [日本語](README_JP.md)
 
